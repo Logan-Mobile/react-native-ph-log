@@ -55,18 +55,20 @@ async function submitLog(fileId: string, token: string, extraParams: object) {
         let body = Object.assign({}, extraParams, commonParams);
 
         let response = await fetch(
-            'https://facebook.github.io/react-native/movies.json',
+            'http://support-ali-test.puhuiboss.com/api/biz-ops/aparsing/parsing',
             {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'X-PH-TOKEN':token,
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(body)
             }
         );
         let responseJson = await response.json();
+
         // todo 日志上报成功
-        if (responseJson.succees) {
+        if (responseJson.success) {
             return Promise.resolve();
         } else {
             return Promise.reject(new Error('日志上报失败'));
