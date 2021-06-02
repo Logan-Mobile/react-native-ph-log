@@ -33,11 +33,38 @@ RCT_EXPORT_METHOD(f)
     loganFlush();
 }
 
+// 获取指定文件
+RCT_EXPORT_METHOD(getDateFile:(NSString *)time callBack:(RCTResponseSenderBlock)callback){
+    NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"LoganLoggerv3"];
+    NSString *timeDay = [self getTimeFromTimestamp:time];
+    filePath = [filePath stringByAppendingPathComponent:timeDay];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDir = FALSE;
+    BOOL isDirExist = [fileManager fileExistsAtPath:filePath isDirectory:&isDir];
+    if (isDirExist) {
+        callback(@[filePath]);
+    }else{
+        callback(@[@"0"]);
+    }
+}
+
+- (NSString *)getTimeFromTimestamp:(NSString *)timeString {
+    //将对象类型的时间转换为NSDate类型
+    double time = [timeString doubleValue];
+    NSDate * myDate=[NSDate dateWithTimeIntervalSince1970:time / 1000.0];
+    //设置时间格式
+    NSDateFormatter * formatter= [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"YYYY-MM-dd"];
+    //将时间转换为字符串
+    NSString *timeStr = [formatter stringFromDate:myDate];
+    return timeStr;
+}
+
 // 获取所有的文件
 RCT_EXPORT_METHOD(getAllFiles:(RCTResponseSenderBlock)callback)
 {
     NSDictionary *map = loganAllFilesInfo();
-    callback(@[map]);
+    callback(@[map.allKeys]);
 }
 
 -(instancetype)init

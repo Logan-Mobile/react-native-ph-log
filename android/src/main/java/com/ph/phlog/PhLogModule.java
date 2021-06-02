@@ -44,10 +44,7 @@ public class PhLogModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void w(String log) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String time = format.format(new Date());
-
-        Logan.w(time + ":" + log, 1);
+        Logan.w(log, 1);
     }
 
     @ReactMethod
