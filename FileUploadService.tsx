@@ -44,7 +44,7 @@ export function showSelectLogModal(onSelectLog: Function) {
  * @param token
  * @param extraParams
  */
-async function submitLog(fileId: string, token: string, extraParams: object) {
+async function submitLog(fileId: string, token: string, extraParams: any) {
     try {
         let commonParams = {
             platform: Platform.OS,
@@ -53,13 +53,12 @@ async function submitLog(fileId: string, token: string, extraParams: object) {
         };
 
         let body = Object.assign({}, extraParams, commonParams);
-
         let response = await fetch(
-            'http://support-ali-test.puhuiboss.com/api/biz-ops/aparsing/parsing',
+            extraParams.url ? extraParams.url : 'http://support-ali-test.puhuiboss.com/api/biz-ops/aparsing/parsing',
             {
                 method: 'POST',
                 headers: {
-                    'X-PH-TOKEN':token,
+                    'X-PH-TOKEN': token,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(body)
