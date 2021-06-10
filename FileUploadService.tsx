@@ -49,7 +49,7 @@ async function submitLog(fileId: string, token: string, extraParams: any) {
         let commonParams = {
             platform: Platform.OS,
             osVersion: Platform.Version,
-            upLoadTime: moment().format('YYYY-MM-DD HH:mm:ss')
+            upLoadTime: moment().valueOf()
         };
 
         let body = Object.assign({}, extraParams, commonParams);
