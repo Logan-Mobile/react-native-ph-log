@@ -102,6 +102,10 @@ public class PhLogModule extends ReactContextBaseJavaModule {
         Logan.init(config);
     }
 
+    public static void nativeWrite(String log) {
+        Logan.w(log, 1);
+    }
+
 
     public String getFileName(String date) {
         File file = new File(LOG_FILE_PATH);
