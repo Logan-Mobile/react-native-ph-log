@@ -1,7 +1,7 @@
 {
   "name": "react-native-ph-log",
   "title": "React Native Ph Log",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "蒲惠业务日志库,上传文件,对接后端日志系统",
   "main": "index.js",
   "files": [

@@ -15,15 +15,18 @@ const { PhLog } = NativeModules;
 export function showSelectLogModal(onSelectLog: Function) {
 
     PhLog.getAllFiles((files: Array<string>) => {
+
+        const sortFiles = files.sort()
+
         ActionSheet.showActionSheetWithOptions(
             {
-                cancelButtonIndex: files.length,
-                options: files,
+                cancelButtonIndex: sortFiles.length,
+                options: sortFiles,
                 title: ''
             },
             index => {
                 PhLog.getDateFile(
-                    `${moment(moment(files[index]).format('YYYY-MM-DD')).valueOf()}`,
+                    `${moment(moment(sortFiles[index]).format('YYYY-MM-DD')).valueOf()}`,
                     (filePath: string) => {
                         let fileName = filePath;
                         let filePathSplitArr = filePath.split('/');
