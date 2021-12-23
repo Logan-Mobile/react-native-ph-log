@@ -1,14 +1,14 @@
 {
   "name": "react-native-ph-log",
   "title": "React Native Ph Log",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "description": "蒲惠业务日志库,上传文件,对接后端日志系统",
   "main": "index.js",
   "files": [
     "README.md",
     "android",
     "index.js",
-    "FileUploadService.tsx",	
+    "FileUploadService.tsx",
     "ios",
     "react-native-ph-log.podspec"
   ],
@@ -17,9 +17,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-ph-log.git",
+    "url": "git+https://10.10.0.176/ph-rn/react-native-ph-log.git",
     "baseUrl": "https://10.10.0.176/"
   },
+  "homepage": "https://10.10.0.176/ph-rn/react-native-ph-log.git",
+  "summary": "A react-native module that can upload log",
   "keywords": [
     "react-native"
   ],
@@ -32,10 +34,7 @@
   "readmeFilename": "README.md",
   "peerDependencies": {
     "react": ">=16.8.1",
-    "moment": ">=2.24.0",
-    "react-native": ">=0.60.0-rc.0 <1.0.x",
-    "@ph/ph-rn-ui": ">=0.3.4",
-    "react-native-device-info": ">=7.3.1"
+    "react-native": ">=0.60.0-rc.0 <1.0.x"
   },
   "devDependencies": {
     "react": "^16.9.0",
