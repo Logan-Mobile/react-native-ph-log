@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
   s.preserve_paths = 'README.md', 'package.json', 'index.js'
   # s.source_files = "ios/**/*.{h,c,cc,cpp,m,mm,swift}"
-  s.dependency     'React-Core'
 
 
   s.source_files = "ios/*", "ios/iOS/*", "ios/Clogan/*.{h,c}"
